@@ -10,7 +10,7 @@ export default defineConfig({
   adapter: vercel(),
   integrations: [
     storyblok({
-      accessToken: env.STORYBLOK_TOKEN,
+      accessToken: 'r9ie4IIkISoPVfCgX7Kx7Att',
       bridge: true,
       components: {
         about: 'storyblok/About',
