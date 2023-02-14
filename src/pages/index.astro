@@ -1,16 +1,24 @@
 ---
+import { useStoryblokApi } from '@storyblok/astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../storyblok/Hero.astro';
 import ScreeningCard from '../storyblok/ScreeningCard.astro';
-import About from '../storyblok/About.astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import ContactForm from '../storyblok/ContactForm.astro';
 import ThingsCard from '../storyblok/ThingsCard.astro';
+
+const sbApi = useStoryblokApi();
+const { data } = await sbApi.get('cdn/stories/home', {
+  version: 'draft',
+});
+
+const story = data.story;
 ---
 
 <BaseLayout>
   <Hero />
   <div class="section__2">
-    <About />
+    <StoryblokComponent blok={story.content} />
     <ContactForm />
   </div>
   <div class="section__container">
