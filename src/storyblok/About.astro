@@ -1,17 +1,13 @@
 ---
+import { storyblokEditable, renderRichText } from '@storyblok/astro';
+
+const { blok } = Astro.props;
+const content = renderRichText(blok.content);
 ---
 
-<article class="about__container">
-  <h3 class="header__3 about__title">About My Eyes! My Eyes</h3>
+<article {...storyblokEditable(blok)} class="about__container">
+  <h3 class="header__3 about__title">{blok.title}</h3>
   <p class="about__text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi iste inventore sit necessitatibus
-    maxime, corrupti illum ducimus debitis facere a molestias iusto reprehenderit, quisquam eveniet
-    eius quae sequi accusamus quas maiores quos architecto exercitationem consequatur! Dolores
-    voluptate perferendis accusamus aliquid reprehenderit, debitis animi facere aliquam eaque a ipsa
-    quae aut voluptatem ipsum voluptas, neque, enim iusto. Inventore aut facere qui, quibusdam sunt
-    eum, veniam rem neque totam, vero consequuntur corrupti exercitationem. Odio exercitationem
-    magni non impedit cupiditate dolore nesciunt, aperiam fuga reiciendis debitis provident labore
-    architecto totam consequatur ad quaerat enim veniam iusto modi quia placeat quod. Quas, commodi
-    similique.
+    {blok.text}
   </p>
 </article>
